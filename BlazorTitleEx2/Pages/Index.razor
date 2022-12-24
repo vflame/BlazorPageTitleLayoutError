@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<button @onclick="SetMainLayout">Set MainLayout</button>
+<button @onclick="SetSecondLayout">Set SecondLayout</button>
+
+@code
+{
+    [CascadingParameter] App ParentApp { get; set; }
+
+    public void SetMainLayout()
+    {
+        ParentApp.ChangeLayout(typeof(MainLayout));
+    }
+
+    public void SetSecondLayout()
+    {
+        ParentApp.ChangeLayout(typeof(SecondLayout));
+    }
+}
